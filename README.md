@@ -8,7 +8,7 @@ The resources in this  All the resources that are used for this tutorials are av
 
 ---
 
-### 1. Edit **activity_sticker_pack_details.xml**
+### 1. Edit **```activity_sticker_pack_details.xml```** (res/layout)
 
 Just after/before the **"ADD TO WHATSAPP"** button view, Insert the following code snippet. (Just before the last line. If you find it hard to locate).
 
@@ -73,8 +73,8 @@ Add the following lines of code inside ```onCreate``` function of the ```Sticker
     View addButton_AroundMe = findViewById(R.id.add_to_aroundme_button);
     addButton_AroundMe.setOnClickListener(v -> addStickerPackToAroundMe(stickerPack.identifier, stickerPack.name));
 
-### 3. Edit **StickerPackDetailsActivity.java**
-Add the following code snippet anywhere inside the ```StickerPackDetailsActivity``` class.
+### 3. Edit **AddStickerPackActivity.java**
+Add the following code snippet anywhere inside the ```AddStickerPackActivity``` class.
 
     public static String AROUNDME_PACKAGE_NAME="com.hash.aroundme";
     protected void addStickerPackToAroundMe(String identifier, String stickerPackName) {
@@ -88,7 +88,7 @@ Add the following code snippet anywhere inside the ```StickerPackDetailsActivity
         }
     }
 
-### 4. Edit **sticker_packs_list_item.xml**
+### 4. Edit **sticker_packs_list_item.xml** (res/layout)
 Replace the **"+"** button view code with the following code block. (If you find it hard to find, simply search for the view with id ```add_button_on_list```).
 
      <ImageView
@@ -136,13 +136,13 @@ Add the following code inside the ```StickerPackListItemViewHolder``` constructo
     addButtonAroundMe = itemView.findViewById(R.id.add_button_on_list_aroundme);
     
 ### 6. Edit **StickerPackListAdapter.java**
-Go to ```StickerPackListAdapter``` class and add the below code block inside the ```onBindViewHolder``` function.
+Go to ```StickerPackListAdapter``` class and add paste the below code block inside the ```onBindViewHolder``` function (at the end of the function),
 
     viewHolder.addButtonAroundMe.setOnClickListener(v -> {
             if(aroundMeAddButtonClickListener!=null)aroundMeAddButtonClickListener.onAddButtonClicked(pack);
         });
 
-Add the following anywhere inside ```StickerPackListAdapter``` class.
+...Add the following code anywhere inside ```StickerPackListAdapter``` class.
 
     public void setAroundMeAddButtonClickListener(OnAddButtonClickedListener aroundMeAddButtonClickListener) {
         this.aroundMeAddButtonClickListener = aroundMeAddButtonClickListener;
