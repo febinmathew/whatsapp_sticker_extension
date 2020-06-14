@@ -10,7 +10,7 @@ The resources in this  All the resources that are used for this tutorials are av
 
 ### 1. Edit **activity_sticker_pack_details.xml**
 
-Just after/before the **"ADD TO WHATSAPP"** button view, Insert the following code snippet. (Just before the last line. If you find it hard to locate)
+Just after/before the **"ADD TO WHATSAPP"** button view, Insert the following code snippet. (Just before the last line. If you find it hard to locate).
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -65,7 +65,7 @@ Just after/before the **"ADD TO WHATSAPP"** button view, Insert the following co
         </FrameLayout>
     </FrameLayout>
     
-This would create another button that says **"ADD TO AROUNDME"**. *(Kindly explore the repo for **"sticker_3rdparty_am"** drawable)*
+This would create another button that says **"ADD TO AROUNDME"**. *(Kindly explore the repo for **"sticker_3rdparty_am"** drawable)*.
 
 ### 2. Edit **StickerPackDetailsActivity.java**
 Add the following lines of code inside ```onCreate``` function of the ```StickerPackDetailsActivity``` class.
@@ -89,7 +89,7 @@ Add the following code snippet anywhere inside the ```StickerPackDetailsActivity
     }
 
 ### 4. Edit **sticker_packs_list_item.xml**
-Replace the **"+"** button view code with the following code block. (If you find it hard to find, simply search for the view with id ```add_button_on_list```)
+Replace the **"+"** button view code with the following code block. (If you find it hard to find, simply search for the view with id ```add_button_on_list```).
 
      <ImageView
         android:id="@+id/add_button_on_list"
@@ -126,23 +126,23 @@ Replace the **"+"** button view code with the following code block. (If you find
             android:src="@drawable/sticker_3rdparty_am"
             />
     
-### Edit **StickerPackListItemViewHolder.java**
-Declare a variable for ImageView anywhere inside the ```StickerPackListItemViewHolder``` class
+### 5. Edit **StickerPackListItemViewHolder.java**
+Declare a variable for ImageView anywhere inside the ```StickerPackListItemViewHolder``` class.
 
     final ImageView addButtonAroundMe;
     
-Add the following code inside the ```StickerPackListItemViewHolder``` constructor   
+Add the following code inside the ```StickerPackListItemViewHolder``` constructor.
 
     addButtonAroundMe = itemView.findViewById(R.id.add_button_on_list_aroundme);
     
-### Edit **StickerPackListAdapter.java**
+### 6. Edit **StickerPackListAdapter.java**
 Go to ```StickerPackListAdapter``` class and add the below code block inside the ```onBindViewHolder``` function.
 
     viewHolder.addButtonAroundMe.setOnClickListener(v -> {
             if(aroundMeAddButtonClickListener!=null)aroundMeAddButtonClickListener.onAddButtonClicked(pack);
         });
 
-Add the following anywhere inside ```StickerPackListAdapter``` class
+Add the following anywhere inside ```StickerPackListAdapter``` class.
 
     public void setAroundMeAddButtonClickListener(OnAddButtonClickedListener aroundMeAddButtonClickListener) {
         this.aroundMeAddButtonClickListener = aroundMeAddButtonClickListener;
@@ -151,7 +151,7 @@ Add the following anywhere inside ```StickerPackListAdapter``` class
     private OnAddButtonClickedListener aroundMeAddButtonClickListener;
     
     
-### Edit **StickerPackListActivity.java**
+### 7. Edit **StickerPackListActivity.java**
 
 Inside the ```showStickerPackList``` fucntion just after initialization of ```allStickerPacksListAdapter```  *(allStickerPacksListAdapter = new StickerPackListAdapter(stickerPackList, onAddButtonClickedListener);)* object, Add the following code.
 
