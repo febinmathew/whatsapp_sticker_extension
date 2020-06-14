@@ -67,13 +67,13 @@ Just after/before the **"ADD TO WHATSAPP"** button view, Insert the following co
     
 This would create another button that says **"ADD TO AROUNDME"**. *(Kindly explore the repo for **"sticker_3rdparty_am"** drawable)*.
 
-### 2. Edit **StickerPackDetailsActivity.java**
+### 2. Edit **```StickerPackDetailsActivity.java```**
 Add the following lines of code inside ```onCreate``` function of the ```StickerPackDetailsActivity``` class.
 
     View addButton_AroundMe = findViewById(R.id.add_to_aroundme_button);
     addButton_AroundMe.setOnClickListener(v -> addStickerPackToAroundMe(stickerPack.identifier, stickerPack.name));
 
-### 3. Edit **AddStickerPackActivity.java**
+### 3. Edit **```AddStickerPackActivity.java```**
 Add the following code snippet anywhere inside the ```AddStickerPackActivity``` class.
 
     public static String AROUNDME_PACKAGE_NAME="com.hash.aroundme";
@@ -88,7 +88,7 @@ Add the following code snippet anywhere inside the ```AddStickerPackActivity``` 
         }
     }
 
-### 4. Edit **sticker_packs_list_item.xml** (res/layout)
+### 4. Edit **```sticker_packs_list_item.xml```** (res/layout)
 Replace the **"+"** button view code with the following code block. (If you find it hard to find, simply search for the view with id ```add_button_on_list```).
 
      <ImageView
@@ -126,7 +126,7 @@ Replace the **"+"** button view code with the following code block. (If you find
             android:src="@drawable/sticker_3rdparty_am"
             />
     
-### 5. Edit **StickerPackListItemViewHolder.java**
+### 5. Edit **```StickerPackListItemViewHolder.java```**
 Declare a variable for ImageView anywhere inside the ```StickerPackListItemViewHolder``` class.
 
     final ImageView addButtonAroundMe;
@@ -135,7 +135,7 @@ Add the following code inside the ```StickerPackListItemViewHolder``` constructo
 
     addButtonAroundMe = itemView.findViewById(R.id.add_button_on_list_aroundme);
     
-### 6. Edit **StickerPackListAdapter.java**
+### 6. Edit **```StickerPackListAdapter.java```**
 Go to ```StickerPackListAdapter``` class and add paste the below code block inside the ```onBindViewHolder``` function (at the end of the function),
 
     viewHolder.addButtonAroundMe.setOnClickListener(v -> {
@@ -151,7 +151,7 @@ Go to ```StickerPackListAdapter``` class and add paste the below code block insi
     private OnAddButtonClickedListener aroundMeAddButtonClickListener;
     
     
-### 7. Edit **StickerPackListActivity.java**
+### 7. Edit **```StickerPackListActivity.java```**
 
 Inside the ```showStickerPackList``` fucntion just after initialization of ```allStickerPacksListAdapter```  *(allStickerPacksListAdapter = new StickerPackListAdapter(stickerPackList, onAddButtonClickedListener);)* object, Add the following code.
 
