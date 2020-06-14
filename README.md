@@ -4,7 +4,7 @@
 
 The resources in this  All the resources that are used for this tutorials are available in this repo. You can clon it into your system if required or feel free to use the one you like. 
 
-*This tutorial uses AroundMe App for Strickers extension. You can download AroundMe App from [here](https://youtu.be/0ocf7u76WSo).*
+*This tutorial uses AroundMe App for Strickers extension. You can download AroundMe App from [here](https://play.google.com/store/apps/details?id=com.hash.aroundme).*
 
 ---
 
