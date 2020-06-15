@@ -78,13 +78,20 @@ Add the following code snippet anywhere inside the ```AddStickerPackActivity``` 
 
     public static String AROUNDME_PACKAGE_NAME="com.hash.aroundme";
     protected void addStickerPackToAroundMe(String identifier, String stickerPackName) {
+    
+        try {
+            getApplicationContext().getPackageManager().getPackageInfo(AROUNDME_PACKAGE_NAME, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            Toast.makeText(this, "AroundMe is not installed in your device", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = createIntentToAddStickerPack(identifier, stickerPackName);
         intent.setPackage(AROUNDME_PACKAGE_NAME);
         intent.setAction("com.hash.aroundme.intent.action.ENABLE_STICKER_PACK");
         try {
             startActivityForResult(intent, ADD_PACK);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, "Sticker pack not added. If you'd like to add it, make sure you update to the latest version of    AroundMe.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Sticker pack not added. If you'd like to add it, make sure you update to the latest version of AroundMe.", Toast.LENGTH_LONG).show();
         }
     }
 
